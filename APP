@@ -1,0 +1,35 @@
+import tkinter as tk
+from tkinter import ttk
+
+def calculate_square():
+    power_of_2 = entry_var.get()
+    result = power_of_2 ** 2
+    output_var.set(result)
+
+window = tk.Tk()
+window.title("Puissance Calculator")
+window.geometry("500x250")
+
+# Font
+title_font = ("calibri", 30, "bold")
+output_font = ("bold", 22)
+
+# Title
+title = ttk.Label(window, text="Puissance 2", font=title_font)
+title.pack()
+
+# Input Frame
+frame = ttk.Frame(window)
+entry_var = tk.IntVar()
+entry = ttk.Entry(frame, textvariable=entry_var)
+button = ttk.Button(frame, text="Calculate", command=calculate_square)
+entry.pack(side="left", padx=10)
+button.pack(side="left")
+frame.pack(pady=5)
+
+# Output Label
+output_var = tk.IntVar()
+output_label = ttk.Label(window, text="Output", font=output_font, textvariable=output_var)
+output_label.pack(pady=10)
+
+window.mainloop()
